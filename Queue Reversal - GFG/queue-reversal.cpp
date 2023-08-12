@@ -11,26 +11,25 @@ using namespace std;
 class Solution
 {
     public:
-    
-    void reversing(queue<int> &q,int front){
-        if(q.empty())
-         return ;
-    int x=q.front();
-    q.pop();
-    if(front!=q.size()){
-        front++;
-    }
-    reversing(q,front);
-    front=0;
-    q.push(x);
-    front++;
-}
     queue<int> rev(queue<int> q)
     {
         // add code here.
-        int front=0;
-        reversing(q,front);
-        return q;
+        stack<int> s;
+    int size= q.size();
+    while(size>0){
+        int f= q.front();
+        s.push(f);
+        q.pop();
+        size--;
+    }
+    size=s.size();
+    while(size>0){
+        int f=s.top();
+        q.push(f);
+        s.pop();
+        size--;
+    }
+    return q;
     }
 };
 
