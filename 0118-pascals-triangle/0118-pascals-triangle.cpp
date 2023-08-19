@@ -1,25 +1,21 @@
 class Solution {
 public:
+    
+    vector<int> nthrow(int row){
+        vector<int> ans;
+        int res=1;
+        ans.push_back(res);
+        for(int i=1;i<row;i++){
+            res=res*(row-i);
+            res=res/i;
+            ans.push_back(res);
+        }
+        return ans;
+    }
     vector<vector<int>> generate(int numRows) {
         vector<vector<int>> ans;
-         ans.push_back(vector<int> ());
-         ans[0].push_back(1);
-        if(numRows==1)
-            return ans;
-        ans.push_back(vector<int> ());
-        ans[1].push_back(1);
-        ans[1].push_back(1);
-        for(int i=2;i<numRows;i++){
-            ans.push_back(vector<int> ());
-            for(int j=0;j<=i;j++){
-                if(j==0 || j==i)
-                    ans[i].push_back(1);
-                else{
-                    int first= ans[i-1][j];
-                    int second= ans[i-1][j-1];
-                    ans[i].push_back(first+second);
-                }      
-            }
+        for(int i=1;i<=numRows;i++){
+            ans.push_back(nthrow(i));
         }
         return ans;
     }
