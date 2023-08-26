@@ -1,1 +1,1 @@
-#Leetcode_Problem_Solutions
+This repository consists of solutions of LeetCode and GFG DSA problems
