@@ -15,12 +15,18 @@ class Solution
     string reverseWord(string str)
     {
         // Your code goes here
+        stack<char> st;
         int i=0;
-        int j=str.length()-1;
-        while(i<j){
-            swap(str[i],str[j]);
+        while(str[i]!='\0'){
+            char c=str[i];
+            st.push(c);
             i++;
-            j--;
+        }
+        str="";
+        int size=st.size();
+        for(int i=0;i<size;i++){
+            str+=st.top();
+            st.pop();
         }
         return str;
     }
