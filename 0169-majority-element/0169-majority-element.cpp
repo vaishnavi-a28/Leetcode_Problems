@@ -7,8 +7,9 @@ public:
         while(i<nums.size()){
             if(cnt==0){
                 ans=nums[i];
+                cnt=1;
             }
-            if(nums[i]==ans)
+            else if(nums[i]==ans)
                 cnt++;
             else
                 cnt--;
